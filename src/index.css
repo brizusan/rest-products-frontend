@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+a.active{
+  @apply underline-offset-4 underline text-blue-500 transition-all 
+}
