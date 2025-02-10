@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# REST Products Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es el frontend para la gestión de productos, desarrollado con React y TypeScript. Está diseñado para interactuar con el backend correspondiente y proporcionar una interfaz de usuario intuitiva y eficiente.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework**: Construido con React y TypeScript.
+- **Estilos**: Utiliza Tailwind CSS para estilos rápidos y responsivos.
+- **Enrutamiento**: Implementado con React Router para una navegación fluida.
+- **Consultas** : Utiliza loaders con useLoaderData y actions const useActionData , API DATA .
+- **Validación de Formularios**: Validacion Simple por medio de FormData
 
-## Expanding the ESLint configuration
+## Requisitos Previos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (versión 14 o superior)
+- pnpm (gestor de paquetes)
 
-- Configure the top-level `parserOptions` property like this:
+## Instalación
+
+1. **Clonar el repositorio**:
+
+   ```js
+   git clone https://github.com/brizusan/rest-products-frontend.git
+   cd rest-products-frontend
+   ```
+
+2. **Instalar dependencias**:
+
+   ```js
+   pnpm install
+   ```
+
+3. **Configurar variables de entorno**:
+
+   - Crea un archivo `.env` en la raíz del proyecto.
+   - Agrega la URL del backend:
+
+     ```
+     VITE_API_URL=http://localhost:3000/api
+     ```
+
+     Asegúrate de que esta URL coincida con la dirección donde se está ejecutando tu backend.
+
+## Uso
+
+Para iniciar la aplicación en modo de desarrollo:
 
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+pnpm dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+La aplicación estará disponible en `http://localhost:5173`.
+
+## Despliegue
+
+Para construir la aplicación para producción:
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+pnpm build
 ```
+
+Se encuentra desplegado en Vercel o Netlify.
+
+## Estructura del Proyecto
+
+- **src/**: Contiene el código fuente del proyecto.
+  - **components/**: Componentes reutilizables de la aplicación.
+  - **api/**: Contiene las consultas de manera centralizada
+  - **views/**: Páginas principales de la aplicación.
+  - **router/**: Sistema de Rutas con React Router Dom
+  - **services/**: Módulos para interactuar con APIs externas.
+  - **utils/**: Funciones y utilidades auxiliares.
+  - **lib/**: Instancia de axios
+
